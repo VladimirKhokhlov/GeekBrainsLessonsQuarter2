@@ -4,6 +4,7 @@ public class Human {
     String name;
     final int MAX_JUMP;
     final int MAX_DISTANCE;
+    boolean check = true;
 
     public Human(String name, int max_jump, int max_distance) {
         this.name = name;
