@@ -1,6 +1,7 @@
 package lesson1;
 
 public class AppTest {
+
     public static void main(String[] args) {
         Human[] humans = {
                 new Human("Олежка", 10, 20),
@@ -16,8 +17,8 @@ public class AppTest {
 
         Robot[] robots = {
                 new Robot("Robot № 1", 25, 45),
-                new Robot("Robot № 1", 35, 55),
-                new Robot("Robot № 1", 45, 65),
+                new Robot("Robot № 2", 35, 55),
+                new Robot("Robot № 3", 45, 65),
         };
 
         Treadmill[] treadmills = {
@@ -27,43 +28,74 @@ public class AppTest {
         };
 
         Wall[] walls = {
-                new Wall(10,1),
-                new Wall(20,2),
-                new Wall(30,3),
+                new Wall(10, 1),
+                new Wall(20, 2),
+                new Wall(30, 3),
         };
 
-        run(humans, treadmills, walls);
+        startCompetition(humans, cats, robots, treadmills, walls);
     }
 
-    public static void run(Human[] humans, Treadmill[] treadmills, Wall[] walls) {
+    public static boolean startCompetition(Human[] humans, Cat[] cats, Robot[] robots, Treadmill[] treadmills, Wall[] walls) {
         for (Human human : humans) {
             for (Treadmill treadmill : treadmills) {
-                if (human.MAX_DISTANCE >= treadmill.length) {
-                    System.out.println(human.name + " пробежал " + treadmill.number + " дорожку");
-                    jump(humans, walls);
                 if (human.MAX_DISTANCE < treadmill.length) {
                     System.out.println(human.name + " не смог пробежать " + treadmill.number + " дорожку!");
+                    human.check = false;
                     break;
                 }
+                System.out.println(human.name + " пробежал " + treadmill.number + " дорожку");
+            }
+            if (human.check) {
+                for (Wall wall : walls) {
+                    if (human.MAX_JUMP < wall.height) {
+                        System.out.println(human.name + " не смог перепрыгнуть через " + wall.number + " стену!");
+                        break;
+                    }
+                    System.out.println(human.name + " перепрыгнул через " + wall.number + " стену");
                 }
             }
         }
-    }
-
-    public static void jump(Human[] humans, Wall[] walls) {
         System.out.println();
-        for (Human human : humans) {
-            for (Wall wall : walls) {
-                if (human.MAX_JUMP < wall.height) {
-                    System.out.println(human.name + " не смог перепрыгнуть через  " + wall.number + " стену!");
-
-                if (human.MAX_JUMP >= wall.height) {
-                    System.out.println(human.name + " перепрыгнул через  " + wall.number + " стену");
-                    return;
+        for (Cat cat : cats) {
+            for (Treadmill treadmill : treadmills) {
+                if (cat.MAX_DISTANCE < treadmill.length) {
+                    System.out.println(cat.name + " не смог пробежать " + treadmill.number + " дорожку!");
+                    cat.check = false;
+                    break;
                 }
+                System.out.println(cat.name + " пробежал " + treadmill.number + " дорожку");
+            }
+            if (cat.check) {
+                for (Wall wall : walls) {
+                    if (cat.MAX_JUMP < wall.height) {
+                        System.out.println(cat.name + " не смог перепрыгнуть через " + wall.number + " стену!");
+                        break;
+                    }
+                    System.out.println(cat.name + " перепрыгнул через " + wall.number + " стену");
                 }
-
             }
         }
+        System.out.println();
+        for (Robot robot : robots) {
+            for (Treadmill treadmill : treadmills) {
+                if (robot.MAX_DISTANCE < treadmill.length) {
+                    System.out.println(robot.name + " не смог пробежать " + treadmill.number + " дорожку!");
+                    robot.check = false;
+                    break;
+                }
+                System.out.println(robot.name + " пробежал " + treadmill.number + " дорожку");
+            }
+            if (robot.check) {
+                for (Wall wall : walls) {
+                    if (robot.MAX_JUMP < wall.height) {
+                        System.out.println(robot.name + " не смог перепрыгнуть через " + wall.number + " стену!");
+                        break;
+                    }
+                    System.out.println(robot.name + " перепрыгнул через " + wall.number + " стену");
+                }
+            }
+        }
+        return false;
     }
 }

@@ -4,6 +4,7 @@ public class Robot {
     String name;
     final int MAX_JUMP;
     final int MAX_DISTANCE;
+    boolean check = true;
 
     public Robot(String name, int max_jump, int max_distance) {
         this.name = name;
