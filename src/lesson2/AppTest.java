@@ -10,10 +10,7 @@ public class AppTest {
                 {"1", "1", "1", "1"}};
         try {
             arrayException(array4x4);
-        } catch (MyArraySizeException e) {
-            System.out.println(e.getMessage());
-            return;
-        } catch (MyArrayDataException e) {
+        } catch (MyArraySizeException | MyArrayDataException e) {
             System.out.println(e.getMessage());
         }
         System.out.println(sum);
