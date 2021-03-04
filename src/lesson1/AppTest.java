@@ -35,6 +35,7 @@ public class AppTest {
 
         startCompetition(humans, cats, robots, treadmills, walls);
     }
+    
 
     public static boolean startCompetition(Human[] humans, Cat[] cats, Robot[] robots, Treadmill[] treadmills, Wall[] walls) {
         for (Human human : humans) {
