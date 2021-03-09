@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lesson4.ChatController">
+    <children>
+        <MenuBar prefHeight="25.0" prefWidth="226.0">
+            <Menu text="Файл">
+                <MenuItem onAction="#mockAction" text="Пункт 1" />
+                <MenuItem onAction="#mockAction" text="Пункт 2" />
+                <MenuItem onAction="#mockAction" text="Пункт 3" />
+                <MenuItem onAction="#exit" text="Выход" />
+            </Menu>
+            <Menu text="Редактировать">
+                <MenuItem onAction="#mockAction" text="Пункт 1" />
+                <MenuItem onAction="#mockAction" text="Пункт 2" />
+                <MenuItem onAction="#mockAction" text="Пункт 3" />
+                <MenuItem onAction="#exit" text="Выход" />
+            </Menu>
+            <Menu text="Помощь">
+                <MenuItem onAction="#shoeHelp" text="Помощь" />
+                <MenuItem onAction="#mockAction" text="Пункт 2" />
+                <MenuItem onAction="#mockAction" text="Пункт 3" />
+                <MenuItem onAction="#exit" text="Выход" />
+            </Menu>
+        </MenuBar>
+        <HBox style="-fx-background-color: #fcc2ff;" VBox.vgrow="ALWAYS">
+            <TextArea fx:id="chatArea" editable="false" promptText="Тут будет ваш текст" style="-fx-background-color: #fdd9ff;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+            <font>
+               <Font name="Arial" size="14.0" />
+            </font>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets></TextArea>
+            <ListView fx:id="onlineUsers" prefWidth="150" style="-fx-background-color: #fdd9ff;" />
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5" />
+            </padding>
+        </HBox>
+        <HBox spacing="5" style="-fx-background-color: #fcc2ff;">
+            <TextField fx:id="input" onAction="#pressEnter" prefHeight="80" HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnSendMassage" defaultButton="true" onAction="#btnSend" prefHeight="80" prefWidth="140" text="Отправить" />
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>
