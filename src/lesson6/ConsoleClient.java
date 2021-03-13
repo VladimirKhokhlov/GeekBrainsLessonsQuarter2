@@ -19,23 +19,23 @@ public class ConsoleClient {
             Thread write = new Thread(() -> {
                 while (true) {
                     try {
-                    String msg = scanner.nextLine();
+                        String msg = scanner.nextLine();
                         out.writeUTF("Client send: " + msg);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             });
-            write.start();
             write.setDaemon(true);
-                while (true) {
-                    try {
-                        String massage = in.readUTF();
-                        System.out.println(massage);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+            write.start();
+            while (true) {
+                try {
+                    String massage = in.readUTF();
+                    System.out.println(massage);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
