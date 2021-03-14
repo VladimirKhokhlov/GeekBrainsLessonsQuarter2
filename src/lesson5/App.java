@@ -34,23 +34,23 @@ public class App {
                 arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             }
             System.arraycopy(a1, 0, arr, 0, h);
-
         });
         Thread threadTwo = new Thread(() -> {
             System.arraycopy(arr, h, a2, 0, h);
             for (int i = 0; i < a2.length; i++) {
                 arr[i] = 1;
-                arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                arr[i] = (float) (arr[i] * Math.sin(0.2f + (i + h) / 5) * Math.cos(0.2f + (i + h) / 5) * Math.cos(0.4f + (i + h) / 2));
             }
             System.arraycopy(a2, 0, arr, h, h);
         });
+        threadOne.start();
+        threadTwo.start();
         try {
             threadOne.join();
             threadTwo.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.currentTimeMillis();
         System.out.println(System.currentTimeMillis() - a);
     }
 }
