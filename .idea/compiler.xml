@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CatClientNetwork" />
         <module name="ChatClient" />
-        <module name="ChatCommon" />
         <module name="ChatServer" />
+        <module name="ChatCommon" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="CatClientNetwork" target="1.8" />
       <module name="ChatClient" target="1.8" />
       <module name="ChatCommon" target="1.8" />
       <module name="ChatCommons" target="1.5" />

@@ -7,12 +7,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-public class NetworkHelper {
+public class NetworkService {
     private final Socket socket;
     private final DataInputStream inputStream;
     private final DataOutputStream outputStream;
 
-    public NetworkHelper(String address, int port, MessageService messageService) throws IOException {
+    public NetworkService(String address, int port, ChatMessageService messageService) throws IOException {
         this.socket = new Socket(address, port);
         this.inputStream = new DataInputStream(socket.getInputStream());
         this.outputStream = new DataOutputStream(socket.getOutputStream());

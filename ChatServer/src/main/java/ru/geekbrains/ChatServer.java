@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatServer {
-    public static final int PORT = 65112;
+    public static final int PORT = 65000;
 
     public ChatServer() {
         System.out.println("Server Started!");

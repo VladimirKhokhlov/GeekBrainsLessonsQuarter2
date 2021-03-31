@@ -27,11 +27,11 @@ public class ChatController implements Initializable {
     @FXML
     public Button btnSendMassage;
 
-    private MessageService messageService;
+    private ChatMessageService messageService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        messageService = new MessageService(chatArea);
+        messageService = new ChatMessageService("locslhost", 65500, (MessageProcessor) this);
         onlineUsers.setItems(FXCollections.observableArrayList("Фёдор", "Гриша", "Мыкола"));
     }
 

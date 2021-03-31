@@ -10,7 +10,7 @@ public class ConsoleClient {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        try (Socket socket = new Socket("localhost", 65501)) {
+        try (Socket socket = new Socket("localhost", 65500)) {
             System.out.println("Connected");
 
             DataInputStream in = new DataInputStream(socket.getInputStream());
